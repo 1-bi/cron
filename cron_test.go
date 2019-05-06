@@ -21,6 +21,7 @@ func newBufLogger(buf *bytes.Buffer) *log.Logger {
 
 func TestFuncPanicRecovery(t *testing.T) {
 	var buf bytes.Buffer
+
 	cron := New(WithParser(secondParser), WithPanicLogger(newBufLogger(&buf)))
 	cron.Start()
 	defer cron.Stop()
